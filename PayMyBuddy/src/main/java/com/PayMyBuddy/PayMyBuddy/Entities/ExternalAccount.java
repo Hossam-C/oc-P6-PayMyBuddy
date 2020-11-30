@@ -14,13 +14,13 @@ public class ExternalAccount {
     @Column(name="id")
     private int id;
 
-    @Column(name="IBAN")
+    @Column(name="IBAN",length = 15)
     private String IBAN;
 
-    @Column(name="BIC")
+    @Column(name="BIC",length = 15)
     private String BIC;
 
-    @Column(name="bank_name")
+    @Column(name="bank_name",length = 45)
     private String bankName;
 
     @Column(name="date_added")

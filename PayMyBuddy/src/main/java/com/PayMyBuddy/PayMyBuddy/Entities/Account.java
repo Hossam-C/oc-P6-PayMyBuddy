@@ -16,7 +16,7 @@ public class Account {
     @Column(name="date_created")
     private LocalDate dateCreated;
 
-    @Column(name="status")
+    @Column(name="status",length = 20)
     private String status;
 
     @Column(name="balance")

@@ -13,7 +13,7 @@ public class Movements {
     @Column(name="id")
     private int id;
 
-    @Column(name="movement_type")
+    @Column(name="movement_type",length = 15)
     private String movementType;
 
     @ManyToOne
@@ -30,7 +30,7 @@ public class Movements {
     @Column(name="amount")
     private double amount;
 
-    @Column(name="description")
+    @Column(name="description",length = 100)
     private String description;
 
     @OneToMany(mappedBy = "movements")

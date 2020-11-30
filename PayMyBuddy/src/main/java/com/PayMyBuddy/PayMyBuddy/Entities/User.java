@@ -15,23 +15,24 @@ public class User {
     @Column(name="id")
     private int id;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name",length = 30)
     private String lastName;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name",length = 30)
     private String firstName;
 
     @Column(name = "birthday")
     private LocalDate birthday;
 
-    @Column(name = "adress")
+    @Column(name = "adress",length = 50)
     private String adress;
 
     @Column(name = "zip_code")
     private int zipCode;
 
-    @Column(name = "city")
+    @Column(name = "city",length = 45)
     private String city;
+
 
     @OneToMany(mappedBy = "user")
     private List<ExternalAccount> externalAccounts;
@@ -39,14 +40,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Account> accounts;
 
-    @ManyToMany
-    @JoinTable(name = "Relation",
-                joinColumns = {@JoinColumn(name = "id_user")},
-                inverseJoinColumns = {@JoinColumn(name = "id_user_buddy")})
-    private List<User> userList = new ArrayList<User>();
-
-    @ManyToMany(mappedBy = "userList")
-    private List<User> userBuddyList = new ArrayList<User>();
+    @OneToMany(mappedBy = "user")
+    private List<Relation> userList = new ArrayList<Relation>();
 
     public int getId() {
         return id;
@@ -120,19 +115,11 @@ public class User {
         this.accounts = accounts;
     }
 
-    public List<User> getUserList() {
+    public List<Relation> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<User> userList) {
+    public void setUserList(List<Relation> userList) {
         this.userList = userList;
-    }
-
-    public List<User> getUserBuddyList() {
-        return userBuddyList;
-    }
-
-    public void setUserBuddyList(List<User> userBuddyList) {
-        this.userBuddyList = userBuddyList;
     }
 }

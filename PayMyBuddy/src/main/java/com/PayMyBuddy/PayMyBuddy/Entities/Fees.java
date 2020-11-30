@@ -16,7 +16,11 @@ public class Fees {
     @JoinColumn(name="id_movement")
     private Movements movements;
 
-    @Column(name="fees_type")
+    @ManyToOne
+    @JoinColumn(name="id_external_movement")
+    private ExternalMovements externalMovements;
+
+    @Column(name="fees_type",length = 20)
     private String feesType;
 
     @Column(name="rate")
@@ -39,6 +43,14 @@ public class Fees {
 
     public void setMovements(Movements movements) {
         this.movements = movements;
+    }
+
+    public ExternalMovements getExternalMovements() {
+        return externalMovements;
+    }
+
+    public void setExternalMovements(ExternalMovements externalMovements) {
+        this.externalMovements = externalMovements;
     }
 
     public String getFeesType() {

@@ -6,14 +6,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Connexion")
-
 public class Connexion {
 
     @Id
-    @Column(name="email")
+    @Column(name="email",length = 50)
     private String email;
 
-    @Column(name="password")
+    @Column(name="password",length = 100)
     private String password;
 
     @OneToOne

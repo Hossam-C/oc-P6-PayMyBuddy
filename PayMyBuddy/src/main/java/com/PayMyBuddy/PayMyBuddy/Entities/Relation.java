@@ -14,11 +14,13 @@ public class Relation {
     @Column(name="id")
     private int id;
 
-    @Column(name="id_user")
-    private int user;
+    @ManyToOne
+    @JoinColumn(name="id_user")
+    private User user;
 
-    @Column(name="id_user_buddy")
-    private int userBuddy;
+    @ManyToOne
+    @JoinColumn(name="id_user_buddy")
+    private User userBuddy;
 
     @Column(name="date_beginning")
     private LocalDate dateBeginning;
@@ -26,20 +28,29 @@ public class Relation {
     @Column(name="date_end")
     private LocalDate dateEnd;
 
-    public int getUser() {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public User getUser() {
         return user;
     }
 
-    public void setUser(int id_user) {
-        this.user = id_user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getUserBuddy() {
+    public User getUserBuddy() {
         return userBuddy;
     }
 
-    public void setUserBuddy(int id_user_buddy) {
-        this.userBuddy = id_user_buddy;
+    public void setUserBuddy(User userBuddy) {
+        this.userBuddy = userBuddy;
     }
 
     public LocalDate getDateBeginning() {

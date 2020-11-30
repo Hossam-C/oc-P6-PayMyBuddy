@@ -13,7 +13,7 @@ public class ExternalMovements {
     @Column(name="id")
     private int id;
 
-    @Column(name="movement_type")
+    @Column(name="movement_type",length = 15)
     private String movementType;
 
     @Column(name="issuer")
@@ -28,7 +28,7 @@ public class ExternalMovements {
     @Column(name="amount")
     private double amount;
 
-    @Column(name="description")
+    @Column(name="description",length = 100)
     private String description;
 
     @ManyToOne
