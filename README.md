@@ -17,4 +17,4 @@ Les fonctionnalités sont les suivantes :
   - Virer de l'argent sur un compte exterieur
   
 L'application se base sur une base de données MySQL ( SQL de génération joint dans le projet) , dont voici le diagramme : 
-[Diagramme](P6_diag.png?raw=true)
+![Diagramme](P6_diag.png?raw=true)
