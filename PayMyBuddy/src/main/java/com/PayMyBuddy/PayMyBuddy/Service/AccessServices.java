@@ -21,9 +21,9 @@ import java.util.NoSuchElementException;
 
 @Service
 @Transactional
-public class Access {
+public class AccessServices {
 
-    private static final Logger logger = LogManager.getLogger(Access.class);
+    private static final Logger logger = LogManager.getLogger(AccessServices.class);
 
 
     @Autowired
@@ -36,6 +36,8 @@ public class Access {
     private AccountDAO accountDAO;
 
     public boolean createAccount(UserDTO userDTO)  {
+
+        logger.debug("createAccount");
 
         //Vérification que le mail n'est pas déja utilisé (mail unique)
         //Recherche d'une connexion
@@ -118,6 +120,8 @@ public class Access {
 
 
     public boolean loginAccount(ConnexionDTO connexionDTO) throws ConnexionException {
+
+        logger.debug("loginAccount");
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 

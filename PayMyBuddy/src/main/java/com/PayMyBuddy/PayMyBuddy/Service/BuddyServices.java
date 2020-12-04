@@ -8,6 +8,8 @@ import com.PayMyBuddy.PayMyBuddy.DTO.BuddyAccountDTO;
 import com.PayMyBuddy.PayMyBuddy.Entities.Relation;
 import com.PayMyBuddy.PayMyBuddy.Entities.User;
 import com.PayMyBuddy.PayMyBuddy.Exceptions.BuddyException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,8 @@ import java.util.NoSuchElementException;
 @Service
 @Transactional
 public class BuddyServices {
+
+    private static final Logger logger = LogManager.getLogger(BuddyServices.class);
 
     @Autowired
     private ConnexionDAO connexionDAO;
@@ -35,6 +39,7 @@ public class BuddyServices {
 
     public boolean addBuddy(String mailUser , String mailBuddy) throws BuddyException {
 
+        logger.debug("addBuddy");
 
         //Vérifier que le buddy est bien enregistré dans le système.
         try {
@@ -79,6 +84,8 @@ public class BuddyServices {
     }
 
     public List<BuddyAccountDTO> listBuddyById(String email){
+
+        logger.debug("listBuddyById");
 
         List<BuddyAccountDTO> lBuddyAccount = new ArrayList<>();
 

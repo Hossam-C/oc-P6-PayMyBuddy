@@ -6,7 +6,7 @@ import com.PayMyBuddy.PayMyBuddy.DTO.ConnexionDTO;
 import com.PayMyBuddy.PayMyBuddy.DTO.UserDTO;
 import com.PayMyBuddy.PayMyBuddy.Entities.Connexion;
 import com.PayMyBuddy.PayMyBuddy.Exceptions.ConnexionException;
-import com.PayMyBuddy.PayMyBuddy.Service.Access;
+import com.PayMyBuddy.PayMyBuddy.Service.AccessServices;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 public class AccessServiceTest {
 
     @InjectMocks
-    private Access access = new Access();
+    private AccessServices accessServices = new AccessServices();
 
     @Mock
     private ConnexionDAO connexionDAO;
@@ -47,7 +47,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(notEmptyConnection);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -70,7 +70,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -93,7 +93,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -116,7 +116,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -139,7 +139,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -162,7 +162,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -185,7 +185,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -208,7 +208,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
     @Test
@@ -230,7 +230,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.createAccount(userDTO));
+        assertFalse(accessServices.createAccount(userDTO));
 
     }
 
@@ -249,7 +249,7 @@ public class AccessServiceTest {
 
         when(connexionDAO.findById(anyString())).thenReturn(emptyConnexion);
 
-        assertFalse(access.loginAccount(connexionDTO));
+        assertFalse(accessServices.loginAccount(connexionDTO));
 
     }
 

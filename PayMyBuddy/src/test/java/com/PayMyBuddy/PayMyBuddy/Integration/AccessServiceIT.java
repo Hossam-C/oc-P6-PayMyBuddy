@@ -10,7 +10,7 @@ import com.PayMyBuddy.PayMyBuddy.Entities.Account;
 import com.PayMyBuddy.PayMyBuddy.Entities.Connexion;
 import com.PayMyBuddy.PayMyBuddy.Entities.User;
 import com.PayMyBuddy.PayMyBuddy.Exceptions.ConnexionException;
-import com.PayMyBuddy.PayMyBuddy.Service.Access;
+import com.PayMyBuddy.PayMyBuddy.Service.AccessServices;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class AccessServiceIT {
 
     @Autowired
-    private Access access;
+    private AccessServices accessServices;
 
     @Autowired
     private ConnexionDAO connexionDAO;
@@ -55,17 +55,17 @@ public class AccessServiceIT {
         connexionDTO.setEmail("Essai1@Test");
         connexionDTO.setPassword("MDP1");
 
-        assertThat(access.loginAccount(connexionDTO)).isTrue();
+        assertThat(accessServices.loginAccount(connexionDTO)).isTrue();
 
         connexionDTO.setEmail("Essai1@Test");
         connexionDTO.setPassword("MDP2");
 
-        assertFalse(access.loginAccount(connexionDTO));
+        assertFalse(accessServices.loginAccount(connexionDTO));
 
         connexionDTO.setEmail("Essai99@Test");
         connexionDTO.setPassword("MDP1");
 
-        assertFalse(access.loginAccount(connexionDTO));
+        assertFalse(accessServices.loginAccount(connexionDTO));
 
 
     }
@@ -88,7 +88,7 @@ public class AccessServiceIT {
         userDTO.setCity("Strasbourg");
         userDTO.setZipCode(45678);
 
-        access.createAccount(userDTO);
+        accessServices.createAccount(userDTO);
 
         Connexion connexion = connexionDAO.findById("Essai4@Test").get();
         User     user       = connexionDAO.findById("Essai4@Test").get().getUser();
