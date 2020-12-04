@@ -7,7 +7,7 @@ import com.PayMyBuddy.PayMyBuddy.DAO.UserDAO;
 import com.PayMyBuddy.PayMyBuddy.DTO.BuddyAccountDTO;
 import com.PayMyBuddy.PayMyBuddy.Entities.Relation;
 import com.PayMyBuddy.PayMyBuddy.Exceptions.BuddyException;
-import com.PayMyBuddy.PayMyBuddy.Service.Access;
+import com.PayMyBuddy.PayMyBuddy.Service.AccessServices;
 import com.PayMyBuddy.PayMyBuddy.Service.BuddyServices;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class BuddyServiceIT {
 
 
     @Autowired
-    private Access access;
+    private AccessServices accessServices;
 
     @Autowired
     private BuddyServices buddyServices;

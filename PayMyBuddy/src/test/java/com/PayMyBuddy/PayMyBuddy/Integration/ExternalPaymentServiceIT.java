@@ -66,7 +66,7 @@ public class ExternalPaymentServiceIT {
         externalAccountDTO.setIBAN("FRXXXXXXXXXXX");
         externalAccountDTO.setBIC("ABCDEF");
 
-        externalAccountServices.AddExternalAccount(externalAccountDTO);
+        externalAccountServices.addExternalAccount(externalAccountDTO);
 
         assertThat(externalAccountDAO.findExternalAccountByUser(connexionDAO.findById("Essai2@Test").get().getUser()).getBankName()).isEqualTo("TestBank");
         assertThat(externalAccountDAO.findExternalAccountByUser(connexionDAO.findById("Essai2@Test").get().getUser()).getIBAN()).isEqualTo("FRXXXXXXXXXXX");

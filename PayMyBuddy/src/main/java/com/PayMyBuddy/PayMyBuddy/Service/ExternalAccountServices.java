@@ -8,6 +8,8 @@ import com.PayMyBuddy.PayMyBuddy.DTO.PaymentDTO;
 import com.PayMyBuddy.PayMyBuddy.Entities.*;
 import com.PayMyBuddy.PayMyBuddy.Exceptions.PaymentException;
 import com.PayMyBuddy.PayMyBuddy.Exceptions.UserException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,8 @@ import java.util.NoSuchElementException;
 @Service
 @Transactional
 public class ExternalAccountServices {
+
+    private static final Logger logger = LogManager.getLogger(ExternalAccountServices.class);
 
     @Autowired
     private AccountDAO accountDAO;
@@ -36,6 +40,8 @@ public class ExternalAccountServices {
     private ExternalAccountDAO externalAccountDAO;
 
     public boolean paymentToExternalAccount(PaymentDTO paymentDTO) {
+
+        logger.debug("paymentToExternalAccount");
 
         try {
             if (connexionDAO.findById(paymentDTO.getEmail()).get().getUser() == null) {
@@ -93,7 +99,9 @@ public class ExternalAccountServices {
         return true;
     }
 
-    public boolean AddExternalAccount ( ExternalAccountDTO externalAccountDTO) {
+    public boolean addExternalAccount(ExternalAccountDTO externalAccountDTO) {
+
+        logger.debug("addExternalAccount");
 
         ExternalAccount externalAccount = new ExternalAccount();
         ExternalMovements externalMovements = new ExternalMovements();

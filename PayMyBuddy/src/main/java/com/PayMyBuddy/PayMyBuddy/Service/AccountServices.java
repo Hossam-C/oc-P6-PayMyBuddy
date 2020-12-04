@@ -6,6 +6,8 @@ import com.PayMyBuddy.PayMyBuddy.DAO.*;
 import com.PayMyBuddy.PayMyBuddy.DTO.PaymentDTO;
 import com.PayMyBuddy.PayMyBuddy.Entities.*;
 import com.PayMyBuddy.PayMyBuddy.Exceptions.PaymentException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +20,7 @@ import java.util.List;
 @Transactional
 public class AccountServices {
 
-
+    private static final Logger logger = LogManager.getLogger(AccountServices.class);
 
     @Autowired
     private AccountDAO accountDAO;
@@ -40,6 +42,8 @@ public class AccountServices {
 
 
     public boolean paymentFromAccount(PaymentDTO paymentDTO) {
+
+        logger.debug("paymentFromAccount");
         //Reception d'argent depuis l'exterieur (virement, carte bleue,...)
 
         double amountUserBefore;
@@ -75,6 +79,8 @@ public class AccountServices {
     }
 
     public boolean paymentToBuddy(PaymentDTO paymentDTO, String mailBuddy) {
+
+        logger.debug("paymentToBuddy");
 
         double amountUserBefore;
         double amountUserAfter;
