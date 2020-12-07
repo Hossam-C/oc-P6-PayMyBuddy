@@ -15,22 +15,22 @@ public class User {
     @Column(name="id")
     private int id;
 
-    @Column(name = "last_name",length = 30)
+    @Column(name = "last_name",length = 30, nullable=false)
     private String lastName;
 
-    @Column(name = "first_name",length = 30)
+    @Column(name = "first_name",length = 30, nullable=false)
     private String firstName;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable=false)
     private LocalDate birthday;
 
-    @Column(name = "adress",length = 50)
+    @Column(name = "adress",length = 50, nullable=false)
     private String adress;
 
-    @Column(name = "zip_code")
+    @Column(name = "zip_code", nullable=false)
     private int zipCode;
 
-    @Column(name = "city",length = 45)
+    @Column(name = "city",length = 45, nullable=false)
     private String city;
 
 

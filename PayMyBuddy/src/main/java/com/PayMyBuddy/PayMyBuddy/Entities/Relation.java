@@ -22,7 +22,7 @@ public class Relation {
     @JoinColumn(name="id_user_buddy")
     private User userBuddy;
 
-    @Column(name="date_beginning")
+    @Column(name="date_beginning", nullable=false)
     private LocalDate dateBeginning;
 
     @Column(name="date_end")

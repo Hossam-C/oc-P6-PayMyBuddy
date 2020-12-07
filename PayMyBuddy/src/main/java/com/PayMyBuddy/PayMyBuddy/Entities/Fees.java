@@ -20,13 +20,13 @@ public class Fees {
     @JoinColumn(name="id_external_movement")
     private ExternalMovements externalMovements;
 
-    @Column(name="fees_type",length = 20)
+    @Column(name="fees_type",length = 20, nullable=false)
     private String feesType;
 
-    @Column(name="rate")
+    @Column(name="rate", nullable=false)
     private double rate;
 
-    @Column(name="fees_amount")
+    @Column(name="fees_amount", nullable=false)
     private double feesAmount;
 
     public int getId() {

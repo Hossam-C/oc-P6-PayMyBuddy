@@ -13,13 +13,13 @@ public class Account {
     @Column(name="id")
     private int id;
 
-    @Column(name="date_created")
+    @Column(name="date_created", nullable=false)
     private LocalDate dateCreated;
 
-    @Column(name="status",length = 20)
+    @Column(name="status",length = 20, nullable=false)
     private String status;
 
-    @Column(name="balance")
+    @Column(name="balance", nullable=false)
     private double balance;
 
     @ManyToOne
