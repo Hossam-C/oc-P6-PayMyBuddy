@@ -22,12 +22,12 @@ DROP TABLE IF EXISTS `P6_DB`.`User` ;
 
 CREATE TABLE IF NOT EXISTS `P6_DB`.`User` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `last_name` VARCHAR(30) NULL,
-  `first_name` VARCHAR(30) NULL,
-  `birthday` DATE NULL,
-  `adress` VARCHAR(50) NULL,
-  `zip_code` INT NULL,
-  `city` VARCHAR(45) NULL,
+  `last_name` VARCHAR(30) NOT NULL,
+  `first_name` VARCHAR(30) NOT NULL,
+  `birthday` DATE NOT NULL,
+  `adress` VARCHAR(50) NOT NULL,
+  `zip_code` INT NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -39,7 +39,7 @@ DROP TABLE IF EXISTS `P6_DB`.`Connexion` ;
 
 CREATE TABLE IF NOT EXISTS `P6_DB`.`Connexion` (
   `email` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(100) NULL,
+  `password` VARCHAR(100) NOT NULL,
   `id_user` INT NOT NULL,
   PRIMARY KEY (`email`),
   INDEX `fk_Connexion_Utilisateur_idx` (`id_user` ASC) VISIBLE,
@@ -58,9 +58,9 @@ DROP TABLE IF EXISTS `P6_DB`.`Account` ;
 
 CREATE TABLE IF NOT EXISTS `P6_DB`.`Account` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `date_created` DATE NULL,
-  `status` VARCHAR(20) NULL,
-  `balance` DECIMAL(15,2) NULL,
+  `date_created` DATE NOT NULL,
+  `status` VARCHAR(20) NOT NULL,
+  `balance` DECIMAL(15,2) NOT NULL,
   `id_user` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Compte_Utilisateur1_idx` (`id_user` ASC) VISIBLE,
@@ -79,10 +79,10 @@ DROP TABLE IF EXISTS `P6_DB`.`External_account` ;
 
 CREATE TABLE IF NOT EXISTS `P6_DB`.`External_account` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `IBAN` VARCHAR(15) NULL,
-  `BIC` VARCHAR(15) NULL,
-  `bank_name` VARCHAR(45) NULL,
-  `date_added` DATE NULL,
+  `IBAN` VARCHAR(15) NOT NULL,
+  `BIC` VARCHAR(15) NOT NULL,
+  `bank_name` VARCHAR(45) NOT NULL,
+  `date_added` DATE NOT NULL,
   `id_user` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Compte exterieur_Utilisateur1_idx` (`id_user` ASC) VISIBLE,
@@ -101,11 +101,11 @@ DROP TABLE IF EXISTS `P6_DB`.`External_movements` ;
 
 CREATE TABLE IF NOT EXISTS `P6_DB`.`External_movements` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `movement_type` VARCHAR(15) NULL,
-  `issuer` INT NULL,
-  `beneficiary` INT NULL,
-  `date_movement` DATE NULL,
-  `amount` DECIMAL(15,2) NULL,
+  `movement_type` VARCHAR(15) NOT NULL,
+  `issuer` INT NOT NULL,
+  `beneficiary` INT NOT NULL,
+  `date_movement` DATE NOT NULL,
+  `amount` DECIMAL(15,2) NOT NULL,
   `description` VARCHAR(100) NULL,
   `id_account` INT NULL,
   `id_external_account` INT NULL,
@@ -135,8 +135,8 @@ CREATE TABLE IF NOT EXISTS `P6_DB`.`Movements` (
   `movement_type` VARCHAR(15) NULL,
   `issuer` INT NOT NULL,
   `beneficiary` INT NOT NULL,
-  `date_movement` DATETIME NULL,
-  `amount` DECIMAL(12,2) NULL,
+  `date_movement` DATETIME NOT NULL,
+  `amount` DECIMAL(12,2) NOT NULL,
   `description` VARCHAR(100) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Movements_Account1_idx` (`issuer` ASC) VISIBLE,
@@ -161,11 +161,11 @@ DROP TABLE IF EXISTS `P6_DB`.`Fees` ;
 
 CREATE TABLE IF NOT EXISTS `P6_DB`.`Fees` (
   `Id` INT NOT NULL AUTO_INCREMENT,
-  `id_movement` INT NULL,
-  `id_external_movements` INT NULL,
-  `fees_type` VARCHAR(20) NULL,
-  `rate` DECIMAL(6,4) NULL,
-  `fees_amount` DECIMAL(12,2) NULL,
+  `id_movement` INT NOT NULL,
+  `id_external_movements` INT NOT NULL,
+  `fees_type` VARCHAR(20) NOT NULL,
+  `rate` DECIMAL(6,4) NOT NULL,
+  `fees_amount` DECIMAL(12,2) NOT NULL,
   INDEX `fk_Frais_Mouvements1_idx` (`id_movement` ASC) VISIBLE,
   PRIMARY KEY (`Id`),
   INDEX `fk_Fees_External_movements1_idx` (`id_external_movements` ASC) VISIBLE,
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `P6_DB`.`Relation` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_user` INT NOT NULL,
   `id_user_buddy` INT NOT NULL,
-  `date_beginning` DATE NULL,
+  `date_beginning` DATE NOT NULL,
   `date_end` DATE NULL,
   INDEX `fk_Relation_Utilisateur1_idx` (`id_user` ASC) VISIBLE,
   INDEX `fk_Relation_Utilisateur2_idx` (`id_user_buddy` ASC) VISIBLE,
