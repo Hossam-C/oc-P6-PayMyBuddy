@@ -13,7 +13,7 @@ public class Movements {
     @Column(name="id")
     private int id;
 
-    @Column(name="movement_type",length = 15)
+    @Column(name="movement_type",length = 15, nullable=false)
     private String movementType;
 
     @ManyToOne
@@ -24,10 +24,10 @@ public class Movements {
     @JoinColumn(name="beneficiary")
     private Account beneficiary;
 
-    @Column(name="date_movement")
+    @Column(name="date_movement", nullable=false)
     private LocalDate dateMovement;
 
-    @Column(name="amount")
+    @Column(name="amount", nullable=false)
     private double amount;
 
     @Column(name="description",length = 100)

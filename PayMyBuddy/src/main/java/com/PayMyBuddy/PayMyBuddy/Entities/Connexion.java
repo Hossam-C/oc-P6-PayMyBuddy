@@ -12,7 +12,7 @@ public class Connexion {
     @Column(name="email",length = 50)
     private String email;
 
-    @Column(name="password",length = 100)
+    @Column(name="password",length = 100, nullable=false)
     private String password;
 
     @OneToOne
